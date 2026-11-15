@@ -49,10 +49,10 @@ describe('original mission theme',()=>{
   const page=render(<SpaceBackdrop/>);expect(page.container.querySelectorAll('circle')).toHaveLength(150);
   expect(makeStars().every(s=>s.opacity<=.3&&s.x>=0&&s.x<1000&&s.y>=0&&s.y<1000)).toBe(true);
  });
- it('defaults to the deep-space dark display independently of OS preference',()=>{
+ it('defaults to mission-control light independently of OS preference',()=>{
   vi.stubGlobal('matchMedia',vi.fn(()=>({matches:true,addEventListener:vi.fn(),removeEventListener:vi.fn()})));
   const page=render(<App initialData={bundle}/>);expect(page.container.querySelector('.space-backdrop svg')).toBeTruthy();
-  expect(document.documentElement.dataset.display).toBe('dark');
+  expect(document.documentElement.dataset.display).toBe('light');
   const css=readFileSync(resolve(import.meta.dirname,'../../src/theme/theme.css'),'utf8');
   expect(css).not.toContain('prefers-color-scheme');expect(css).not.toContain('display:none');
   const control=readFileSync(resolve(import.meta.dirname,'../../src/styles/mission-control.css'),'utf8');expect(control).toContain('background:var(--surface)');expect(control).toContain('grid-template-columns:1fr');
@@ -65,14 +65,14 @@ describe('original mission theme',()=>{
  });
  it('switches and remembers light display',()=>{
   const page=render(<App initialData={bundle}/>);const button=screen.getByRole('button',{name:'Light display'});
-  expect(button.getAttribute('aria-pressed')).toBe('false');fireEvent.click(button);
-  expect(document.documentElement.dataset.display).toBe('light');expect(localStorage.getItem('spacehealth-display')).toBe('light');
-  page.unmount();render(<App initialData={bundle}/>);expect(screen.getByRole('button',{name:'Light display'}).getAttribute('aria-pressed')).toBe('true');
+  expect(button.getAttribute('aria-pressed')).toBe('true');fireEvent.click(button);
+  expect(document.documentElement.dataset.display).toBe('dark');expect(localStorage.getItem('spacehealth-display')).toBe('dark');
+  page.unmount();render(<App initialData={bundle}/>);expect(screen.getByRole('button',{name:'Light display'}).getAttribute('aria-pressed')).toBe('false');
  });
  it('works when storage is blocked',()=>{
   const get=vi.spyOn(Storage.prototype,'getItem').mockImplementation(()=>{throw new Error('blocked');});
   const set=vi.spyOn(Storage.prototype,'setItem').mockImplementation(()=>{throw new Error('blocked');});
-  render(<App initialData={bundle}/>);fireEvent.click(screen.getByRole('button',{name:'Light display'}));expect(document.documentElement.dataset.display).toBe('light');get.mockRestore();set.mockRestore();
+  render(<App initialData={bundle}/>);fireEvent.click(screen.getByRole('button',{name:'Light display'}));expect(document.documentElement.dataset.display).toBe('dark');get.mockRestore();set.mockRestore();
  });
  it('disables the sole animation class when reduced motion is requested',()=>{
   vi.stubGlobal('matchMedia',vi.fn(()=>({matches:true,addEventListener:vi.fn(),removeEventListener:vi.fn()})));
