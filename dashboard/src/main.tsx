@@ -11,3 +11,5 @@ import { registerOffline } from './offline';
 void registerOffline().catch(()=>{});
 
 import './styles/mission-control.css';
+
+import './cosmos/cosmos.css';

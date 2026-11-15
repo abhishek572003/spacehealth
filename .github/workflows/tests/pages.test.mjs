@@ -16,7 +16,7 @@ test('built shell and local fonts use the configured Pages base',()=>{
  for(const url of urls){assert.ok(url.startsWith(base),url);assert.ok(existsSync(resolve(dist,url.slice(base.length))),url);}
  const css=readdirSync(resolve(dist,'assets')).filter(n=>n.endsWith('.css')).map(n=>readFileSync(resolve(dist,'assets',n),'utf8')).join('\n');
  const fonts=[...css.matchAll(/url\(["']?([^\s)"']+\.woff2)["']?\)/g)].map(m=>m[1]);
- assert.equal(fonts.length,5);
+ assert.equal(fonts.length,7); // Inter x4, IBM Plex Mono, Instrument Serif x2
  for(const url of fonts){assert.ok(url.startsWith(base+'fonts/'),url);assert.ok(existsSync(resolve(dist,url.slice(base.length))),url);}
 });
 
