@@ -24,3 +24,5 @@ handoffs/reports/TASK-001.md
 
 # Submission drafts (video script, project page) are kept local only
 docs/submission/
+.vercel
+.env*
