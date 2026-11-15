@@ -148,3 +148,16 @@
  :root[data-display="dark"] .nav-row{border-radius:20px;width:100%}
  :root[data-display="dark"] nav button{padding:9px 10px}
 }
+
+/* Status emphasis: Watch reads as a warning, Act as urgent (dark display) */
+:root[data-display="dark"] :is(.status-watch,.status-act){padding:4px 10px 4px 4px;border-radius:999px;font-weight:600}
+:root[data-display="dark"] .status-watch{background:#F59E0B1F;box-shadow:inset 0 0 0 1px #F59E0B55}
+:root[data-display="dark"] .status-watch span{background:#F59E0B33;border-color:#F59E0B}
+:root[data-display="dark"] .status-act{background:#FF5A5A1F;box-shadow:inset 0 0 0 1px #FF9E9E55}
+:root[data-display="dark"] .module-grid>.spot:has(.status-watch){background:linear-gradient(180deg,#F59E0B14,transparent 55%),color-mix(in srgb,var(--surface) 72%,transparent);border-color:#F59E0B40}
+:root[data-display="dark"] .module-grid>.spot:has(.status-act){background:linear-gradient(180deg,#FF5A5A14,transparent 55%),color-mix(in srgb,var(--surface) 72%,transparent);border-color:#FF9E9E40}
+:root[data-display="dark"] .attention-row:has(.status-watch){border-left-color:#F59E0B}
+:root[data-display="dark"] .attention-row:has(.status-act){border-left-color:var(--act)}
+:root[data-display="dark"] .crew-cell:has(.status-watch){border-color:#F59E0B40;background:#F59E0B0A}
+:root[data-display="dark"] .crew-cell:has(.status-act){border-color:#FF9E9E40;background:#FF5A5A0A}
+:root[data-display="dark"] .log-warning{background:#F59E0B;box-shadow:0 0 8px #F59E0B88}
