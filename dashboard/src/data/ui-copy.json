@@ -1,0 +1,97 @@
+{
+  "panels": {
+    "mission_header": {
+      "title": "Mission status",
+      "what_for": "Where the mission is and how cut off from Earth you are. Messages to the ground take minutes each way and may not get through during a blackout, so the crew acts first.",
+      "how_to_read": "Day {day} of {duration}. Comms delay is the one-way time for a message to reach Earth.",
+      "blackout_active": "Communication blackout: messages to the ground are held until the link returns. Use the onboard crew medical officer for anything that cannot wait.",
+      "blackout_inactive": "No blackout simulated for this day."
+    },
+    "radiation_budget": {
+      "title": "Radiation budget",
+      "what_for": "How much space radiation you have received this mission, and where you are heading by mission end, compared with NASA's 600 mSv career limit.",
+      "how_to_read": "Solid bar: dose received so far. Lighter bar: projected total if the background rate continues ({rate} mSv/day). Prior missions are included only if known.",
+      "career_unknown": "Your dose from earlier missions is not recorded here, so the career total is unknown. Only this mission is shown.",
+      "source_note": "Limit: NASA-STD-3001 Vol 1 Rev C. Background rate: measured on the way to Mars (Zeitlin et al. 2013)."
+    },
+    "today_tiles": {
+      "title": "Today",
+      "what_for": "One tile per health area. Each compares today's readings with your own normal, measured in the 14 days before launch.",
+      "how_to_read": "Nominal: within your usual range. Watch: a sustained change worth checking. Act: follow the card now. No reliable data: readings are missing or too few to judge \u2014 this is not the same as normal."
+    },
+    "attention_cards": {
+      "title": "Needs attention",
+      "what_for": "The next steps for anything flagged. Urgent items always appear first and are never hidden; routine items are limited to three so the list stays readable.",
+      "how_to_read": "Each card says why it appeared, how sure the system is, what to do now, when to check again, and who to involve. Urgent cards are marked Act.",
+      "empty": "Nothing needs attention today. Keep wearing your sensors and completing check-ins so this stays reliable."
+    },
+    "detail": {
+      "title": "Detail",
+      "what_for": "The evidence behind a tile: your recent readings against your preflight normal, what changed, and the suggested next step.",
+      "how_to_read": "The shaded band is your usual range. Gaps in a line are missing readings, not zeros.",
+      "chart_legend": "Line: your nightly reading. Dark line: your preflight normal. Shaded band: your usual range around it. Gap: no reading that night.",
+      "no_action": "No action is needed for this area today. The chart is shown for information."
+    },
+    "crew_grid": {
+      "title": "Crew overview",
+      "what_for": "Every crewmember's status in each health area on the selected day, so the crew medical officer can see who may need a check-in.",
+      "how_to_read": "Select a cell to open that person's detail. In a real mission each astronaut would choose what is shared."
+    },
+    "timeline": {
+      "title": "Mission log",
+      "what_for": "Everything that happened, in order: when flags started and cleared, space-weather warnings, and actions recorded on this device.",
+      "how_to_read": "Recorded actions show that a step was logged, not that it caused any later change.",
+      "empty": "No changes recorded for this selection yet."
+    },
+    "replay": {
+      "title": "Mission replay",
+      "what_for": "Play the simulated mission day by day to see when changes happen and when SpaceHealth flags them.",
+      "how_to_read": "Markers show when each simulated event really started. They are visible only here, never on the Today screen."
+    },
+    "validation": {
+      "title": "Validation (simulated)",
+      "what_for": "How the detectors performed on simulated missions where we know the truth: whether each event was caught, how early or late, and how many false alerts occurred.",
+      "how_to_read": "These are synthetic-scenario results, not clinical validation.",
+      "mock_note": "These numbers are placeholder mock values for building the screen. They are not results from the SpaceHealth model.",
+      "holdout_title": "Frozen-model holdout test (run once, simulated missions)",
+      "holdout_lines": [
+        "Illness-like change: flagged by the symptom day in 25 of 40 independent simulated cases (62 %), and within the illness period in 39 of 40. Larger heart-rate rises were caught earlier; the smallest (about 3\u20134.5 bpm) were usually caught 1\u20134 days after symptoms began.",
+        "Sleep restriction: flagged by day 97 in 26 of 40 cases; 11 were never flagged, mostly where the restriction was small compared with that person's normal sleep.",
+        "Solar particle events: every warning in the replayed NASA DONKI sequence raised an immediate Act for every crewmember.",
+        "Exercise-like heart-rate spikes: never escalated to Act. Missing data: always shown as No reliable data.",
+        "Routine false alerts: about 0.85 physiological and 0.44 sleep Watch episodes per 100 crew-days (roughly 1.5 and 0.8 per crewmember over a 180-day mission)."
+      ],
+      "holdout_note": "The detector was chosen and its settings locked before this test. Results are synthetic-scenario results from our simulator, not clinical validation.",
+      "release_case_note": "The mission shown in this app is one pre-selected holdout case (seed 1000), chosen before results were seen.",
+      "illustrative_case_note": "Illustrative case: this simulated mission (holdout seed 1002) was chosen after testing to show every part of the interface. It is a typical success, not the best result. Overall results, including misses, are in Validation.",
+      "preselected_case_note": "Pre-selected case (holdout seed 1000), fixed before testing. Here the illness-like change is flagged one day after symptoms began and the sleep restriction is not flagged \u2014 see Validation."
+    }
+  },
+  "theme": {
+    "trajectory_label": "Earth \u2192 Mars transit \u00b7 day {day} of {duration}",
+    "trajectory_note": "Illustrative progress along a simulated transit; not a navigation display.",
+    "comms_link": "Message to Earth: about {minutes} min one way (illustrative)",
+    "comms_blackout": "Link down \u2014 messages to Earth are held until it returns",
+    "storm_banner_title": "Solar particle event warning",
+    "storm_banner_body": "Follow the mission's approved solar particle event procedure. Details are in the radiation card.",
+    "storm_banner_note": "Event timing replays real solar activity recorded by NASA's DONKI database (September 2017, observed near Earth).",
+    "ship_clock": "Mission day {day} \u00b7 {time} ship time",
+    "ship_clock_daily": "Mission day {day}",
+    "crew_badge_note": "Simulated crewmembers C1\u2013C4. Not real people."
+  },
+  "states": {
+    "load_error": "SpaceHealth could not load or check its data files, so no health status is shown. Showing partial data could be misleading.",
+    "indicator_unavailable": "No assessment is available for this area on this day. This is not the same as normal."
+  },
+  "actions": {
+    "recorded": "Action recorded on this device at {time}. Recording a step does not confirm it was completed or that it changed anything."
+  },
+  "glossary": {
+    "baseline": "Your personal normal, from preflight measurements.",
+    "watch": "A sustained change worth checking.",
+    "act": "Follow the action card now.",
+    "unknown": "Not enough reliable data to judge.",
+    "mSv": "Millisievert, a unit of radiation dose.",
+    "CMO": "Crew medical officer \u2014 the crewmember trained to provide medical care on board."
+  }
+}

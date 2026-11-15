@@ -1,0 +1,13 @@
+You are the builder with me, we will keep this modular, that means the research, model and dashboard will be three entieties that should be testable indvidually. We need to keep it grounded meaning in research section- Download the relevant papers, search and then tell me if there is something unavailbile, i will download it. You need to download the dataset from NASA too, so keep in mind that too. and if something is necessary but you were not able to download it, then let me know. I should be taking calls on important decisions, we need to make it in time too.
+For model part: we can test different models and you need to keep log of everything and every decisions, you choice of model testing should be research based and use case based. Intial testing can be done in the toy version and then we can do a full testing once potential candidate are discarded
+For dashboard: you can make an intiail version but then you will need to take feedback from me to improve it further.
+We will connect it finally, but for that every module should be working properly and should be connectable. so first we need to plan carefully.
+I have some other documents here and they will help you in understanding big picture. you can also let me know if you need to install any additional package and all packages should be well documents in requirement sections.
+I have a discussion.md document, you need to take it into account because that is refinermentv1 in the plan and i will add further if we need more refinements
+
+the most important thing is
+1. Claude will do the non coding things
+2. Codex will Code
+So first you need to create a plan.md where you divide the work such that you have clear boundaries and also mention places you need collaboration, i need a clear workflow where you can work together.
+
+Finally you should keep a log of decision so that we can prepare a report at the end.
